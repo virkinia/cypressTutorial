@@ -2,6 +2,28 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.8.
 
+## Create Angular project with Cypress and Cucumber
+
+1. Create angular project: ``` ng new tutorialCypress ```
+2. Install Cypress: ``` npm i cypress --save-dev ```
+   * Launch cypress (npm > 5.4): ``` npx cypress open ```
+   * Now we can see a new folder called cypress in our project.
+   * Add cypress script to packaje.json : ```  "scripts": {
+    "cypress:open": "cypress open" } ```
+
+3. Install Cucumber-cypress-preprocessor:
+   * npm install --save-dev cypress-cucumber-preprocessor
+   * Add below lines in cypress/plugins/index.js:    
+      ``` const cucumber = require('cypress-cucumber-preprocessor').default ```
+      ``` module.exports = (on, config) => { on('file:preprocessor', cucumber())} ```
+   * Add below line in packaje.json:  
+      ```"cypress-cucumber-preprocessor": { "nonGlobalStepDefinitions": true }```
+
+## Add Material to create a simple form
+
+1. ```ng add @angular/material```
+
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
